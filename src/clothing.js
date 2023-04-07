@@ -9,3 +9,10 @@ export async function addClothing(req, res) {
     await coll.insertOne(newClothes)
     res.status(201).send({message: "new cloth added"})
 }
+
+//Read 
+export async function getClothing(req, res) {
+    const allClothes = await coll.find({}).toArray()
+    res.status(200).send(allClothes)
+}
+
