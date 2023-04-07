@@ -16,3 +16,11 @@ export async function getClothing(req, res) {
     res.status(200).send(allClothes)
 }
 
+//Delete
+export async function deleteClothing(req, res){
+    const docId = { "_id": new ObjectId(req.params.docId)
+    }
+    await coll.deleteOne(docId);
+    res.status(201).send({ message: " deleted "}) 
+}
+
