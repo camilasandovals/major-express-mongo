@@ -11,6 +11,10 @@ app.use(express.json());
 
 //
 
+app.get("/", (req,res) => {
+    res.send("I am groot")
+})
+
 app.post("/clothes", addClothing);
 app.get("/clothes", getClothing);
 app.delete("/clothes/:docId", deleteClothing)
