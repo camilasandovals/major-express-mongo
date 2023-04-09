@@ -21,7 +21,7 @@ export async function deleteClothing(req, res){
     const docId = { "_id": new ObjectId(req.params.docId)
     }
     await coll.deleteOne(docId);
-    res.status(201).send({ message: " deleted "}) 
+    res.status(202).send({ message: " deleted "}) 
 }
 
 //Update 
@@ -31,7 +31,7 @@ export async function updateClothing(req, res) {
     const updateCloth = {$set: req.body};
     const returnOption = { returnNewDocument: true};
     const query = await coll.findOneAndUpdate( docId, updateCloth, returnOption)
-    res.status(201).send( {message: "updated"})
+    res.status(202).send( {message: "updated"})
     console.table(query.value)
     
 }
